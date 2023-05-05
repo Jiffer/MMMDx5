@@ -13,8 +13,8 @@ Jiffer Harriman - modular-muse.com
 
 
 // use PWM pins 3, 4, 6, 9, 10
-int pins[] = {3, 4, 6, 9, 10};   
-#define numNotes 5
+int pins[] = {3, 4, 6, 9, 10, 23, 22, 20, 17, 16};   
+#define numNotes 10
 
 int lowNote = 60; // MIDI note 16 (E-2)
 unsigned int onTime = 20;
@@ -56,7 +56,8 @@ void loop() {
 
 void OnNoteOn(byte channel, byte note, byte velocity) {
 
-  if (note >= lowNote && note < lowNote + numNotes) {
+  if (note >= lowNote && note < lowNote + numNotes 
+  ) {
     // adjust fir note # offset
     note = note - lowNote;
     // bit shift 7 bits to 12 
